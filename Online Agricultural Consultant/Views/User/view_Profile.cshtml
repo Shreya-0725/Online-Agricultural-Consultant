@@ -1,0 +1,81 @@
+﻿@model Online_Agricultural_Consultant.Models.tblFarmerDetail
+
+@{
+    ViewBag.Title = "view_Profile";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <br />
+            <h1>
+                <u>View Details</u>
+            </h1>
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Breadcrumbs line -->
+   
+   
+    <div style="border: 1px solid;
+    padding: 10px;">
+        <center>
+
+            <h1><u>Details</u></h1>
+        </center>
+        <hr />
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.FarmerId) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.FarmerId)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> Name :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.FirstName)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.Password) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.Password)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.Address) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.Address)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.FarmerType) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.FarmerType)</h1></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.MobileNo) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.MobileNo)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> Block :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.Block)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.PINCode) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.PINCode)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.Dob) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.Dob)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.FarmerCategory) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.FarmerCategory)</h1></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

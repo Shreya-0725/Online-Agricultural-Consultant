@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=1.0">
+    <title>Online Agricultural Consultant | Admin Dashboard</title>
+    <link href="~/DashboardStyles/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/DashboardStyles/css/londinium-theme.css" rel="stylesheet" type="text/css">
+    <link href="~/DashboardStyles/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/DashboardStyles/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="~/DashboardStyles/ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/charts/sparkline.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/uniform.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/select2.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/inputmask.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/autosize.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/inputlimit.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/listbox.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/multiselect.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/validate.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/tags.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/switch.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/uploader/plupload.full.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/uploader/plupload.queue.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/wysihtml5/wysihtml5.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/wysihtml5/toolbar.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/fancybox.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/moment.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/jgrowl.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/datatables.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/colorpicker.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/timepicker.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/application.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
+                <span class="sr-only">Toggle navbar</span>
+                <i class="icon-grid3"></i>
+            </button>
+            <button type="button" class="navbar-toggle offcanvas">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="icon-paragraph-justify2"></i>
+            </button>
+        </div>
+        <ul class="nav navbar-nav navbar-right collapse" id="navbar-icons">
+            <li class="user dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="images/demo/users/face1.png" alt="">
+                    <span>Settings</span>
+                    <i class="caret"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right icons-right">
+                    <li><a href="/Admin/View_Profile"><i class="icon-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="icon-bubble4"></i> Enquery</a></li>
+                    @*<li><a href="#"><i class="icon-cog"></i> Settings</a></li>*@
+                    <li><a href="/Admin/Logout"><i class="icon-exit"></i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="page-container">
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <!-- User dropdown -->
+                <div class="user-menu dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="images/demo/users/face3.png" alt="">
+                        <div class="user-info">
+                             Admin Panel<span></span>
+                        </div>
+                    </a>
+ 
+                </div>
+                <!-- /user dropdown -->
+                <!-- Main navigation -->
+                <ul class="navigation">
+                    <li class="active"><a href="/Admin/Dashboard"><span>Dashboard</span> <i class="icon-screen2"></i></a></li>
+                    <li>
+                        <a href="#"><span>Manage Articles </span> <i class="icon-paragraph-justify2"></i></a>
+                        <ul>
+                            <li><a href="/Admin/articals">View Article Details</a></li>
+                         @*   <li><a href="/Admin/add_new_Details">Add Articles</a></li>*@
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><span>Manage Farmer Details</span> <i class="icon-paragraph-justify2"></i></a>
+                        <ul>
+                            <li><a href="/Admin/view_farmer_registration">View Farmer Details</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><span>Mange Kisaan Kendra Details</span> <i class="icon-paragraph-justify2"></i></a>
+                        <ul>
+                            <li><a href="/Admin/add_new_Details">Add New KK Details</a></li>
+                            <li><a href="/Admin/view_all_kk_details">View All KK Details</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><span>Manage Expert Details</span> <i class="icon-paragraph-justify2"></i></a>
+                        <ul>
+                            <li><a href="/Admin/view_expert_registration    ">View Expert Details</a></li>
+                            <li><a href="/Admin/articals    ">View articals</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><span>Manage Staff Details</span> <i class="icon-paragraph-justify2"></i></a>
+                        <ul>
+                            <li><a href="/Admin/add_staff">Add New Staff</a></li>
+                            <li><a href="/Admin/view_staff_list">View Staff Details</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><span>Manage Applications</span> <i class="icon-paragraph-justify2"></i></a>
+                        <ul>
+                            <li><a href="/Admin/rta_assign">View Real Time Assistment</a></li>
+                            <li><a href="/Admin/Soiltest_Expert_assign">View SoilTest Assistment</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><span>Manage Query</span> <i class="icon-bubble6"></i></a>
+                        <ul>
+                            <li><a href="/Admin/EnqueryDetails">View Query Details</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/Admin/Logout"><span>Logout</span> <i class="icon-exit"></i></a></li>
+
+                </ul>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+</body>
+</html>

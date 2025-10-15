@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Online_Agricultural_Consultant.Models.tblQueryDetail>
+
+@{
+    ViewBag.Title = "view_solved_Query";
+    Layout = "~/Views/Shared/StaffLayout.cshtml";
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <h3></h3>
+        </div>
+    </div>
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li><a href="/Staff/Dashboard">Dashboard</a></li>
+            <li class="active">View Solved Query </li>
+        </ul>
+    </div>
+    <div class="tabbable page-tabs">
+        <div class="tab-content">
+            @if (TempData["mmm2"] != null)
+            {
+                @Html.Raw(TempData["mmm2"])
+            }
+            <div class="tab-pane active fade in" id="inside">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <div class="datatable">
+                            <table class="table">
+                                <thead style="font-size:15px;">
+                                    <tr>
+                                        <th>No</th>
+                                        <td>
+                                            FarmerID
+                                        </td>
+                                        <td>
+                                            Title
+                                        </td>
+                                        <td>
+                                            Query
+                                        </td>
+                                        <td>
+                                            Date
+                                        </td>
+                                        <td>
+                                            SolvedBy
+                                        </td>
+                                        <td>
+                                            SolutionDate
+                                        </td>
+                                        <td>
+                                            Solution
+                                        </td>
+
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 0;
+                                        foreach (var item in Model)
+                                        {
+                                            i++;
+                                            <tr>
+                                                <td>@i</td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.FarmerId)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Title)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Content)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.CreationDate)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SolvedBy)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SolutionDate)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Solution)
+                                                </td>
+
+                                                @if (item.Solution != null)
+                                                {
+                                                    <td style="color:@(item.Solution == null ? "red" : "green") ">
+                                                        <h5>Solved</h5>
+                                                    </td>
+
+                                                }
+                                            </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>No Data !</h3>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

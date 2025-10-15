@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/ExpertLayout.cshtml";
+}
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <h3>Dashboard </h3>
+        </div>
+    </div>
+  
+    <center>
+
+        <h1><u>Expert Dashboard</u></h1>
+    </center>
+    <br /><br />
+    <div class="row" style="margin-top:20px;">
+        <div class="col-md-12">
+            <div class="row">
+                    <div class="col-md-3">
+                        <button onclick="window.location.href = '/Admin/ViewEpinRequests';" style="height: 70px; background-color: #00A65A; width: 100%; border: none; ">
+                            <span style="font-weight:bold; font-size:30px; text-align:center; color:white;">15</span><br />
+                            <span style="font-weight:bold; font-size:15px; float:left; margin-left:-170px; color:white;"></span><br />
+                            <i class="fa  fa-inr" style="float:right; font-size:30px; color:white; margin-top:-30px;"></i>
+                        </button>
+                        <a href="/Admin/ViewEpinRequests" style="font-size: 18px; color: white; background-color: #518CA3; width: 100%; padding: 10px; float: left; "><b>New Regular Issues</b></a>
+                    </div>
+                    <div class="col-md-3">
+                        <button onclick="window.location.href = '/Admin/FranchiseUserList';" style="height: 70px; background-color: #605CA8; border: none; width: 100%;">
+                            <span style="font-weight:bold; font-size:30px; text-align:center; color:white;">1  </span><br />
+                            <span style="font-weight:bold; font-size:15px; float:left; margin-left:-197px; color:white;"> </span><br />
+                            <i class="fa  fa-inr" style="float:right; font-size:30px; color:white; margin-top:-30px;"></i>
+                        </button>
+                        <a href="/Admin/ViewEpinRequests" style="font-size: 18px; color: white; background-color: #518CA3; width: 100%; padding: 10px; float: left; "><b>New Farm Visits</b></a>
+                    </div>
+                    <div class="col-md-3">
+                        <button style="height: 70px; background-color: #DD4B39; width: 100%; border: none; ">
+                            <span style="font-weight:bold; font-size:30px; text-align:center; color:white;">12 </span><br />
+                            <span style="font-weight:bold; font-size:15px; float:left; margin-left:-142px; color:white;"> </span><br />
+                            <i class="fa  fa-inr" style="float:right; font-size:30px; color:white; margin-top:-30px;"></i>
+                        </button>
+                        <a href="/Admin/ViewEpinRequests" style="font-size: 18px; color: white; background-color: #518CA3; width: 100%; padding: 10px; float: left; "><b>Recent Articals</b></a>
+                    </div>
+                    <div class="col-md-3">
+                        <button onclick="window.location.href = '/Admin/GenerateEPins';" style="height: 70px; background-color: #00C0EF; width: 100%; border: none; ">
+                            <span style="font-weight:bold; font-size:30px; text-align:center; color:white;">0  </span><br />
+                            <span style="font-weight:bold; font-size:15px; float:left; margin-left:-167px; color:white;"></span><br />
+                            <i class="fa  fa-inr" style="float:right; font-size:30px; color:white; margin-top:-30px;"></i>
+                        </button>
+                        <a href="/Admin/GenerateEPins" style=" font-size: 18px; color: white; background-color: #518CA3; width: 100%; padding: 10px; float: left; "><b>Site Visits Solved </b></a>
+                    </div>
+
+                </div><br />
+
+                
+        </div>
+    </div>
+</div>
+

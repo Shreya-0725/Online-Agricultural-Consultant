@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "SuccessPage";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<div class="container" style="margin-top:200px; text-align:center; margin-bottom:70px;">
+    <div class="row">
+
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8" style="border:1px solid silver; border-radius:5px; padding:20px;">
+            <span style="font-weight:bold; font-size:20px;">Registration Successful</span>
+            <hr />
+            <div class="content">
+                <span style="font-size:15px;">Dear <b> @ViewBag.FullName</b>, Your Registration Is Successfull. Your User Id Is  <span style="font-size:18px; font-weight:bold;"> @ViewBag.farmerID </span>& Password is <span style="font-size:18px; font-weight:bold;"> @ViewBag.Pass </span> </span><br />
+                <a href="@Url.Action("Multi_Login","Home")" class="btn btn-primary" style="border-radius:0px; margin-top:20px;">&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>

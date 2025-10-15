@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "ViewStatus";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <br /> <br />
+        <h1>
+            <u>View Status</u>
+        </h1>
+
+    </div>
+    <br />
+  
+    <!-- /breadcrumbs line -->
+    <!-- Callout -->
+    @if (TempData["Status"] != null)
+    {
+        @Html.Raw(TempData["Status"])
+    }
+
+    <form class="form-horizontal" action="/USer/ViewStatus" method="post" role="form" enctype="multipart/form-data">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <p>Select type</p>
+                        <select name="StatusType" class="form-control" required>
+                            <option>-Select-</option>
+                            <option value="SiteVisit">Real Time Assignment</option>
+                            <option value="SoilTest">Soil Test</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <p>Application ID</p>
+                        <input type="text" class="form-control" name="AppID" required>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-sm-9">
+                        <input type="submit" value="Apply" class="btn btn-success">
+                        <input type="reset" value="Clear" class="btn btn-danger">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

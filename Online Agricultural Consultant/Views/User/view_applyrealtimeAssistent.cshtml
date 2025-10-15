@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Online_Agricultural_Consultant.Models.tblSiteVisit>
+
+@{
+    ViewBag.Title = "view_applyrealtimeAssistent";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <h3></h3>
+        </div>
+    </div>
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li><a href="/USer/Dashboard">Dashboard</a></li>
+            <li class="active">View  History </li>
+        </ul>
+    </div>
+    <div class="tabbable page-tabs">
+        <div class="tab-content">
+            @if (TempData["mmm1"] != null)
+            {
+                @Html.Raw(TempData["mmm1"])
+            }
+            <div class="tab-pane active fade in" id="inside">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <div class="datatable">
+                            <table class="table">
+                                <thead style="font-size:15px;">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ApplicationId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FieldType)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FieldLocation)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CropDesc)
+                                        </th>
+                                        <th>
+                                            Problem
+                                        </th>
+                                        <th>
+                                            Date
+
+<th>
+                                            @Html.DisplayNameFor(model => model.AssignedAsst)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.VisitDate)
+                                        </th>
+                                     
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        foreach (var item in Model)
+                                        {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ApplicationId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FieldType)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FieldLocation)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CropDesc)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProblemDesc)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreationDate)
+                                        </td>
+                                        <td>
+                                            @if (item.AssignedAsst != null)
+                                            {
+                                                <b>@item.AssignedAsst</b>
+                                            }
+                                            else
+                                            {
+                                                <b style="color:red">Pending</b>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (item.VisitDate != null)
+                                            {
+                                                <b>@item.VisitDate</b>
+                                            }
+                                            else
+                                            {
+                                                <b style="color:red">Pending</b>
+                                            }
+                                        </td>
+                                        <th>
+                                            <a href="/user/view_RTA_details?ID=@item.ID" class="btn btn-success btn-xs">View Details</a>
+                                        </th>
+
+                                    </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>No Data !</h3>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

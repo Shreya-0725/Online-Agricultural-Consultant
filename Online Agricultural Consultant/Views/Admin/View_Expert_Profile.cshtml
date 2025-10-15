@@ -1,0 +1,88 @@
+﻿@model Online_Agricultural_Consultant.Models.tblExpertDetail
+
+@{
+    ViewBag.Title = "View_Profile";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <br />
+            <h1>Expert Details</h1>
+        </div>
+    </div>
+
+    <div style="border: 1px solid;
+    padding: 10px;">
+        <hr />
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <center>
+
+                            <img src="@Model.Image" style="height:150px;width:150px;" />
+                        </center>
+                        <br />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.ExpertId) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.ExpertId)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> Name :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.FirstName)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.Password) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.Password)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.Address) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.Address)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.Gender) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.Gender)</h1></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.MobileNo) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.MobileNo)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> PanNo :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.PanNo)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.EmailID) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.EmailID)</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.Dob) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Model.Dob</h1></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><h1><b> @Html.DisplayNameFor(model => model.AadharNo) :</b></h1></div>
+                    <div class="col-sm-6"><h1> @Html.DisplayFor(model => model.AadharNo)</h1></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<br /><br /><br /><br /><br />

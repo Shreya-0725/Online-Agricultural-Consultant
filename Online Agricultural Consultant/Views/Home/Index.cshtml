@@ -1,0 +1,71 @@
+﻿@using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+<!-- Header Area End -->
+<!-- Hero Area Start -->
+<div id="hero-area" class="hero-area section">
+    <!-- Hero Slider -->
+    <div id="hero-slider" class="nivoSlider">
+        <img src="~/HomeStyles/img/hero/1.jpg" alt="" title="#herocaption-1" />
+        <img src="~/HomeStyles/img/hero/2.jpg" alt="" title="#herocaption-2" />
+    </div>
+    <!-- Hero Slider Caption -->
+    <div id="herocaption-1" class="nivo-html-caption">
+        <div class="container">
+            <div class="row">
+                <!-- Hero Content -->
+                <div class="hero-content col-12">
+                    <h1 class="wow cusFadeInRight" data-wow-duration=".5s" data-wow-delay="0.5s">Online <b style="color:yellow">Agriculture</b> Consultant <b style="color:brown">Portal</b></h1>
+                    <p class="wow cusFadeInRight" data-wow-duration=".5s" data-wow-delay="1s"></p>
+                    <a href="~/HomeStyles/#" class="learn-more wow cusFadeInRight" data-wow-duration=".5s" data-wow-delay="1.5s">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+        <div id="project-area" style="margin-top:25px;" class="project-area section pb-90">
+            <div class="container">
+                <!-- Section Title -->
+                <div class="row">
+                    <div class="section-title text-center col-12 mb-80">
+                        <h2><u>RECENT ARTICALS</u></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    @{
+                        var Articals = (List<tblArticle>)ViewData["Articals"];
+                        foreach (var item in Articals)
+                        {
+                            <div class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="blog-item">
+                                    <a href="" class="image">
+                                        <img src="@item.Image" alt="">
+                                    </a>
+                                    <div class="content">
+                                        <h4>@item.Subject</h4>
+                                        <div class="meta fix">
+                                            <span>@item.CreationDate</span>
+                                            <span><a href="~/HomeStyles/#"></a></span>
+                                        </div>
+                                        @if (item.Content.Length > 200)
+                                        {
+                                            <p> @(item.Content.Substring(0, 200) + "...")</p>
+                                            <a href="" class="read-more">LEARN MORE</a>
+                                        }
+                                        else
+                                        {
+                                            <p> @(item.Content.Substring(0, 30))</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+        <!-- Project Area End -->

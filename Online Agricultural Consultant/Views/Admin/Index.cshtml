@@ -1,0 +1,99 @@
+﻿@{
+    /**/
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <title>Online Agricultural Consultant| Admin Login</title>
+    <link href="~/DashboardStyles/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/DashboardStyles/css/londinium-theme.css" rel="stylesheet" type="text/css">
+    <link href="~/DashboardStyles/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/DashboardStyles/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="~/DashboardStyles/ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/charts/sparkline.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/uniform.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/select2.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/inputmask.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/autosize.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/inputlimit.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/listbox.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/multiselect.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/validate.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/tags.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/switch.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/uploader/plupload.full.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/uploader/plupload.queue.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/wysihtml5/wysihtml5.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/forms/wysihtml5/toolbar.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/fancybox.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/moment.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/jgrowl.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/datatables.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/colorpicker.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/plugins/interface/timepicker.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/DashboardStyles/js/application.js"></script>
+</head>
+<body>
+    <div class="login-wrapper">
+        @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+        {
+            <div class="popup-header">
+                <a class="pull-left"><i class="icon-user-plus"></i></a>
+                <span class="text-semibold">Admin Login</span>
+                <div class="btn-group pull-right">
+                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cogs"></i></a>
+                    <ul class="dropdown-menu icons-right dropdown-menu-right">
+                        <li><a><i class="icon-info"></i> Forgot password?</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="well">
+                @if (TempData["MSG"] != null)
+                {
+                    <p style="color:red">@TempData["MSG"]</p>
+                }
+                <div class="form-group has-feedback">
+                    <label>Admin Id</label>
+                    <input type="text" name="AdminUserID" class="form-control" required placeholder="Enter Admin Id">
+                    <i class="icon-users form-control-feedback"></i>
+                </div>
+                <div class="form-group has-feedback">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="Password" required placeholder="Enter Password">
+                    <i class="icon-lock form-control-feedback"></i>
+                </div>
+                <div class="row form-actions">
+                    <div class="col-xs-6">
+                        <div class="checkbox checkbox-success">
+                            <label>
+                                <input type="checkbox" class="styled">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <button type="submit" class="btn btn-warning pull-right"><i class="icon-menu2"></i> Sign in</button>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="footer clearfix">
+        <div class="text-center">&copy; @DateTime.Now.Year Online Agricultural Consultant</div>
+    </div>
+</body>
+</html>
+

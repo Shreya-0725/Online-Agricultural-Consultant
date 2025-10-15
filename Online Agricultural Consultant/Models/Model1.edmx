@@ -1,0 +1,775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Online_Agricultural_Consultant_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminUserID" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblArticle">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblDistrict">
+          <Key>
+            <PropertyRef Name="DestrictCode" />
+          </Key>
+          <Property Name="DestrictCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DestrictName" Type="nvarchar(max)" />
+          <Property Name="StateCode" Type="int" />
+        </EntityType>
+        <EntityType Name="tblExpertDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpertId" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="MiddleName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="MobileNo" Type="nvarchar(max)" />
+          <Property Name="EmailID" Type="nvarchar(max)" />
+          <Property Name="Dob" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="District" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="ExpertIn" Type="nvarchar(max)" />
+          <Property Name="SpecialistIn" Type="nvarchar(max)" />
+          <Property Name="EducationLevel" Type="nvarchar(max)" />
+          <Property Name="EducationDetails" Type="nvarchar(max)" />
+          <Property Name="CertificateDetails" Type="nvarchar(max)" />
+          <Property Name="ExperinceInYears" Type="int" />
+          <Property Name="Availibility" Type="nvarchar(max)" />
+          <Property Name="AadharNo" Type="nvarchar(max)" />
+          <Property Name="PanNo" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblFarmerDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FarmerId" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="MiddleName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="District" Type="nvarchar(max)" />
+          <Property Name="Block" Type="nvarchar(max)" />
+          <Property Name="PINCode" Type="int" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="MobileNo" Type="nvarchar(max)" />
+          <Property Name="Dob" Type="datetime" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="FarmerType" Type="nvarchar(max)" />
+          <Property Name="FarmerCategory" Type="nvarchar(max)" />
+          <Property Name="AadharNo" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="nvarchar(max)" />
+          <Property Name="ModifiedDate" Type="nvarchar(max)" />
+          <Property Name="DeletedDate" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblKisaanKendraDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KKId" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="District" Type="nvarchar(max)" />
+          <Property Name="Block" Type="nvarchar(max)" />
+          <Property Name="Village" Type="nvarchar(max)" />
+          <Property Name="NoOfFarmers" Type="int" />
+          <Property Name="NoOfRegApp" Type="int" />
+          <Property Name="NoOfSiteVisitApp" Type="int" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Owner" Type="nvarchar(max)" />
+          <Property Name="Mobile" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblQueryDetails">
+          <Key>
+            <PropertyRef Name="QueryNo" />
+          </Key>
+          <Property Name="QueryNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FarmerId" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="SolvedBy" Type="nvarchar(max)" />
+          <Property Name="SolutionDate" Type="datetime" />
+          <Property Name="Solution" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblRegularIssue">
+          <Key>
+            <PropertyRef Name="IssueId" />
+          </Key>
+          <Property Name="IssueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FarmerID" Type="nvarchar(max)" />
+          <Property Name="IssueType" Type="nvarchar(max)" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModificationDate" Type="datetime" />
+          <Property Name="SolvedBy" Type="nvarchar(max)" />
+          <Property Name="SolutionDate" Type="datetime" />
+          <Property Name="FeedBack" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Solution" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblSiteVisit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationId" Type="nvarchar(max)" />
+          <Property Name="FarmerId" Type="nvarchar(max)" />
+          <Property Name="FieldType" Type="nvarchar(max)" />
+          <Property Name="FieldLocation" Type="nvarchar(max)" />
+          <Property Name="CropDesc" Type="nvarchar(max)" />
+          <Property Name="ProblemDesc" Type="nvarchar(max)" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="ModificationDate" Type="datetime" />
+          <Property Name="DeletionDate" Type="datetime" />
+          <Property Name="AssignedAsst" Type="nvarchar(max)" />
+          <Property Name="VisitDate" Type="datetime" />
+          <Property Name="SolutionDate" Type="datetime" />
+          <Property Name="VisitIntervalInHrs" Type="int" />
+          <Property Name="ClosingDate" Type="datetime" />
+          <Property Name="Feedback" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblSoilTesting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestId" Type="nvarchar(max)" />
+          <Property Name="FarmerId" Type="nvarchar(max)" />
+          <Property Name="ApplicationDate" Type="datetime" />
+          <Property Name="SoilType" Type="nvarchar(max)" />
+          <Property Name="Nutrient" Type="nvarchar(max)" />
+          <Property Name="Acidity" Type="nvarchar(max)" />
+          <Property Name="PhLevel" Type="nvarchar(max)" />
+          <Property Name="TestedBy" Type="nvarchar(max)" />
+          <Property Name="TestDate" Type="datetime" />
+          <Property Name="DeletionDate" Type="datetime" />
+          <Property Name="HealthCardNo" Type="nvarchar(max)" />
+          <Property Name="VisitDate" Type="datetime" />
+          <Property Name="SolutionDate" Type="datetime" />
+          <Property Name="VisitIntervalInHrs" Type="int" />
+          <Property Name="ClosingDate" Type="datetime" />
+          <Property Name="Feedback" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblStaffDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpId" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="MiddleName" Type="datetime" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="MobileNo" Type="nvarchar(max)" />
+          <Property Name="EmailID" Type="nvarchar(max)" />
+          <Property Name="Dob" Type="datetime" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="FullAddress" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Department" Type="nvarchar(max)" />
+          <Property Name="AadharNo" Type="nvarchar(max)" />
+          <Property Name="PanNo" Type="nvarchar(max)" />
+          <Property Name="RoleID" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="StateCode" />
+          </Key>
+          <Property Name="StateCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblStatusDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusId" Type="nvarchar(max)" />
+          <Property Name="ApplicationNo" Type="nvarchar(max)" />
+          <Property Name="ApplicationType" Type="nvarchar(max)" />
+          <Property Name="FarmerId" Type="nvarchar(max)" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblVillage">
+          <Key>
+            <PropertyRef Name="VillageCode" />
+          </Key>
+          <Property Name="VillageCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VillageName" Type="nvarchar(max)" />
+          <Property Name="DestrictCode" Type="int" />
+        </EntityType>
+        <EntityContainer Name="Online_Agricultural_Consultant_DBModelStoreContainer">
+          <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblArticle" EntityType="Self.tblArticle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDistrict" EntityType="Self.tblDistrict" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblExpertDetails" EntityType="Self.tblExpertDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFarmerDetails" EntityType="Self.tblFarmerDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblKisaanKendraDetails" EntityType="Self.tblKisaanKendraDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblQueryDetails" EntityType="Self.tblQueryDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRegularIssue" EntityType="Self.tblRegularIssue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSiteVisit" EntityType="Self.tblSiteVisit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSoilTesting" EntityType="Self.tblSoilTesting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStaffDetails" EntityType="Self.tblStaffDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblState" EntityType="Self.tblState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStatusDetails" EntityType="Self.tblStatusDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVillage" EntityType="Self.tblVillage" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Online_Agricultural_Consultant_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminUserID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblArticle">
+          <Key>
+            <PropertyRef Name="ArticleId" />
+          </Key>
+          <Property Name="ArticleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblDistrict">
+          <Key>
+            <PropertyRef Name="DestrictCode" />
+          </Key>
+          <Property Name="DestrictCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DestrictName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StateCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblExpertDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpertId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dob" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpertIn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpecialistIn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EducationLevel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EducationDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CertificateDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExperinceInYears" Type="Int32" />
+          <Property Name="Availibility" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AadharNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PanNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblFarmerDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FarmerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Block" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PINCode" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dob" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FarmerType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FarmerCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AadharNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblKisaanKendraDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KKId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Block" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Village" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfFarmers" Type="Int32" />
+          <Property Name="NoOfRegApp" Type="Int32" />
+          <Property Name="NoOfSiteVisitApp" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblQueryDetail">
+          <Key>
+            <PropertyRef Name="QueryNo" />
+          </Key>
+          <Property Name="QueryNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FarmerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="SolvedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SolutionDate" Type="DateTime" Precision="3" />
+          <Property Name="Solution" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblRegularIssue">
+          <Key>
+            <PropertyRef Name="IssueId" />
+          </Key>
+          <Property Name="IssueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FarmerID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IssueType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+          <Property Name="SolvedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SolutionDate" Type="DateTime" Precision="3" />
+          <Property Name="FeedBack" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Solution" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSiteVisit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FarmerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FieldType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FieldLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CropDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProblemDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <Property Name="AssignedAsst" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VisitDate" Type="DateTime" Precision="3" />
+          <Property Name="SolutionDate" Type="DateTime" Precision="3" />
+          <Property Name="VisitIntervalInHrs" Type="Int32" />
+          <Property Name="ClosingDate" Type="DateTime" Precision="3" />
+          <Property Name="Feedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSoilTesting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FarmerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationDate" Type="DateTime" Precision="3" />
+          <Property Name="SoilType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nutrient" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Acidity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhLevel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TestedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TestDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletionDate" Type="DateTime" Precision="3" />
+          <Property Name="HealthCardNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VisitDate" Type="DateTime" Precision="3" />
+          <Property Name="SolutionDate" Type="DateTime" Precision="3" />
+          <Property Name="VisitIntervalInHrs" Type="Int32" />
+          <Property Name="ClosingDate" Type="DateTime" Precision="3" />
+          <Property Name="Feedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblStaffDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="DateTime" Precision="3" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dob" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AadharNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PanNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="StateCode" />
+          </Key>
+          <Property Name="StateCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblStatusDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FarmerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblVillage">
+          <Key>
+            <PropertyRef Name="VillageCode" />
+          </Key>
+          <Property Name="VillageCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VillageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DestrictCode" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="Online_Agricultural_Consultant_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
+          <EntitySet Name="tblArticles" EntityType="Self.tblArticle" />
+          <EntitySet Name="tblDistricts" EntityType="Self.tblDistrict" />
+          <EntitySet Name="tblExpertDetails" EntityType="Self.tblExpertDetail" />
+          <EntitySet Name="tblFarmerDetails" EntityType="Self.tblFarmerDetail" />
+          <EntitySet Name="tblKisaanKendraDetails" EntityType="Self.tblKisaanKendraDetail" />
+          <EntitySet Name="tblQueryDetails" EntityType="Self.tblQueryDetail" />
+          <EntitySet Name="tblRegularIssues" EntityType="Self.tblRegularIssue" />
+          <EntitySet Name="tblSiteVisits" EntityType="Self.tblSiteVisit" />
+          <EntitySet Name="tblSoilTestings" EntityType="Self.tblSoilTesting" />
+          <EntitySet Name="tblStaffDetails" EntityType="Self.tblStaffDetail" />
+          <EntitySet Name="tblStates" EntityType="Self.tblState" />
+          <EntitySet Name="tblStatusDetails" EntityType="Self.tblStatusDetail" />
+          <EntitySet Name="tblVillages" EntityType="Self.tblVillage" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Online_Agricultural_Consultant_DBModelStoreContainer" CdmEntityContainer="Online_Agricultural_Consultant_DBEntities">
+          <EntitySetMapping Name="tblAdmins">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblAdmin">
+              <MappingFragment StoreEntitySet="tblAdmin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblArticles">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblArticle">
+              <MappingFragment StoreEntitySet="tblArticle">
+                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDistricts">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblDistrict">
+              <MappingFragment StoreEntitySet="tblDistrict">
+                <ScalarProperty Name="DestrictCode" ColumnName="DestrictCode" />
+                <ScalarProperty Name="DestrictName" ColumnName="DestrictName" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblExpertDetails">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblExpertDetail">
+              <MappingFragment StoreEntitySet="tblExpertDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ExpertId" ColumnName="ExpertId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ExpertIn" ColumnName="ExpertIn" />
+                <ScalarProperty Name="SpecialistIn" ColumnName="SpecialistIn" />
+                <ScalarProperty Name="EducationLevel" ColumnName="EducationLevel" />
+                <ScalarProperty Name="EducationDetails" ColumnName="EducationDetails" />
+                <ScalarProperty Name="CertificateDetails" ColumnName="CertificateDetails" />
+                <ScalarProperty Name="ExperinceInYears" ColumnName="ExperinceInYears" />
+                <ScalarProperty Name="Availibility" ColumnName="Availibility" />
+                <ScalarProperty Name="AadharNo" ColumnName="AadharNo" />
+                <ScalarProperty Name="PanNo" ColumnName="PanNo" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFarmerDetails">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblFarmerDetail">
+              <MappingFragment StoreEntitySet="tblFarmerDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FarmerId" ColumnName="FarmerId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="PINCode" ColumnName="PINCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="FarmerType" ColumnName="FarmerType" />
+                <ScalarProperty Name="FarmerCategory" ColumnName="FarmerCategory" />
+                <ScalarProperty Name="AadharNo" ColumnName="AadharNo" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblKisaanKendraDetails">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblKisaanKendraDetail">
+              <MappingFragment StoreEntitySet="tblKisaanKendraDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KKId" ColumnName="KKId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="NoOfFarmers" ColumnName="NoOfFarmers" />
+                <ScalarProperty Name="NoOfRegApp" ColumnName="NoOfRegApp" />
+                <ScalarProperty Name="NoOfSiteVisitApp" ColumnName="NoOfSiteVisitApp" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblQueryDetails">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblQueryDetail">
+              <MappingFragment StoreEntitySet="tblQueryDetails">
+                <ScalarProperty Name="QueryNo" ColumnName="QueryNo" />
+                <ScalarProperty Name="FarmerId" ColumnName="FarmerId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="SolvedBy" ColumnName="SolvedBy" />
+                <ScalarProperty Name="SolutionDate" ColumnName="SolutionDate" />
+                <ScalarProperty Name="Solution" ColumnName="Solution" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRegularIssues">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblRegularIssue">
+              <MappingFragment StoreEntitySet="tblRegularIssue">
+                <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+                <ScalarProperty Name="FarmerID" ColumnName="FarmerID" />
+                <ScalarProperty Name="IssueType" ColumnName="IssueType" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="SolvedBy" ColumnName="SolvedBy" />
+                <ScalarProperty Name="SolutionDate" ColumnName="SolutionDate" />
+                <ScalarProperty Name="FeedBack" ColumnName="FeedBack" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Solution" ColumnName="Solution" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSiteVisits">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblSiteVisit">
+              <MappingFragment StoreEntitySet="tblSiteVisit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="FarmerId" ColumnName="FarmerId" />
+                <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+                <ScalarProperty Name="FieldLocation" ColumnName="FieldLocation" />
+                <ScalarProperty Name="CropDesc" ColumnName="CropDesc" />
+                <ScalarProperty Name="ProblemDesc" ColumnName="ProblemDesc" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+                <ScalarProperty Name="AssignedAsst" ColumnName="AssignedAsst" />
+                <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+                <ScalarProperty Name="SolutionDate" ColumnName="SolutionDate" />
+                <ScalarProperty Name="VisitIntervalInHrs" ColumnName="VisitIntervalInHrs" />
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSoilTestings">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblSoilTesting">
+              <MappingFragment StoreEntitySet="tblSoilTesting">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TestId" ColumnName="TestId" />
+                <ScalarProperty Name="FarmerId" ColumnName="FarmerId" />
+                <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+                <ScalarProperty Name="SoilType" ColumnName="SoilType" />
+                <ScalarProperty Name="Nutrient" ColumnName="Nutrient" />
+                <ScalarProperty Name="Acidity" ColumnName="Acidity" />
+                <ScalarProperty Name="PhLevel" ColumnName="PhLevel" />
+                <ScalarProperty Name="TestedBy" ColumnName="TestedBy" />
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="DeletionDate" ColumnName="DeletionDate" />
+                <ScalarProperty Name="HealthCardNo" ColumnName="HealthCardNo" />
+                <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+                <ScalarProperty Name="SolutionDate" ColumnName="SolutionDate" />
+                <ScalarProperty Name="VisitIntervalInHrs" ColumnName="VisitIntervalInHrs" />
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStaffDetails">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblStaffDetail">
+              <MappingFragment StoreEntitySet="tblStaffDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="AadharNo" ColumnName="AadharNo" />
+                <ScalarProperty Name="PanNo" ColumnName="PanNo" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStates">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblState">
+              <MappingFragment StoreEntitySet="tblState">
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStatusDetails">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblStatusDetail">
+              <MappingFragment StoreEntitySet="tblStatusDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="ApplicationNo" ColumnName="ApplicationNo" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="FarmerId" ColumnName="FarmerId" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVillages">
+            <EntityTypeMapping TypeName="Online_Agricultural_Consultant_DBModel.tblVillage">
+              <MappingFragment StoreEntitySet="tblVillage">
+                <ScalarProperty Name="VillageCode" ColumnName="VillageCode" />
+                <ScalarProperty Name="VillageName" ColumnName="VillageName" />
+                <ScalarProperty Name="DestrictCode" ColumnName="DestrictCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

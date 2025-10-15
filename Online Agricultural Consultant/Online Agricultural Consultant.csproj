@@ -1,0 +1,559 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ACB93314-98FC-420B-AA57-04C80A9AA171}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Online_Agricultural_Consultant</RootNamespace>
+    <AssemblyName>Online Agricultural Consultant</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DashboardStyles\ajax.googleapis.com\ajax\libs\jqueryui\1.10.2\jquery-ui.min.js" />
+    <Content Include="DashboardStyles\ajax.googleapis.com\ajax\libs\jquery\1.10.1\jquery.min.js" />
+    <Content Include="DashboardStyles\css\bootstrap.min.css" />
+    <Content Include="DashboardStyles\css\icons.css" />
+    <Content Include="DashboardStyles\css\icons\icons.svg" />
+    <Content Include="DashboardStyles\css\londinium-theme.css" />
+    <Content Include="DashboardStyles\css\styles.css" />
+    <Content Include="DashboardStyles\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="DashboardStyles\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="DashboardStyles\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="DashboardStyles\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="DashboardStyles\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="DashboardStyles\images\collection.html" />
+    <Content Include="DashboardStyles\images\collection_hover.html" />
+    <Content Include="DashboardStyles\images\colorpicker\alpha.png" />
+    <Content Include="DashboardStyles\images\colorpicker\hue.png" />
+    <Content Include="DashboardStyles\images\colorpicker\saturation.png" />
+    <Content Include="DashboardStyles\images\demo\big.jpg" />
+    <Content Include="DashboardStyles\images\demo\images\1.png" />
+    <Content Include="DashboardStyles\images\demo\images\2.png" />
+    <Content Include="DashboardStyles\images\demo\images\3.png" />
+    <Content Include="DashboardStyles\images\demo\images\4.png" />
+    <Content Include="DashboardStyles\images\demo\images\5.png" />
+    <Content Include="DashboardStyles\images\demo\images\6.png" />
+    <Content Include="DashboardStyles\images\demo\images\7.png" />
+    <Content Include="DashboardStyles\images\demo\images\8.png" />
+    <Content Include="DashboardStyles\images\demo\users\face1.png" />
+    <Content Include="DashboardStyles\images\demo\users\face10.png" />
+    <Content Include="DashboardStyles\images\demo\users\face11.png" />
+    <Content Include="DashboardStyles\images\demo\users\face12.png" />
+    <Content Include="DashboardStyles\images\demo\users\face13.png" />
+    <Content Include="DashboardStyles\images\demo\users\face14.png" />
+    <Content Include="DashboardStyles\images\demo\users\face15.png" />
+    <Content Include="DashboardStyles\images\demo\users\face16.png" />
+    <Content Include="DashboardStyles\images\demo\users\face17.png" />
+    <Content Include="DashboardStyles\images\demo\users\face18.png" />
+    <Content Include="DashboardStyles\images\demo\users\face19.png" />
+    <Content Include="DashboardStyles\images\demo\users\face2.png" />
+    <Content Include="DashboardStyles\images\demo\users\face20.png" />
+    <Content Include="DashboardStyles\images\demo\users\face21.png" />
+    <Content Include="DashboardStyles\images\demo\users\face22.png" />
+    <Content Include="DashboardStyles\images\demo\users\face23.png" />
+    <Content Include="DashboardStyles\images\demo\users\face24.png" />
+    <Content Include="DashboardStyles\images\demo\users\face25.png" />
+    <Content Include="DashboardStyles\images\demo\users\face3.png" />
+    <Content Include="DashboardStyles\images\demo\users\face4.png" />
+    <Content Include="DashboardStyles\images\demo\users\face5.png" />
+    <Content Include="DashboardStyles\images\demo\users\face6.png" />
+    <Content Include="DashboardStyles\images\demo\users\face7.png" />
+    <Content Include="DashboardStyles\images\demo\users\face8.png" />
+    <Content Include="DashboardStyles\images\demo\users\face9.png" />
+    <Content Include="DashboardStyles\images\flags\english.png" />
+    <Content Include="DashboardStyles\images\flags\german.png" />
+    <Content Include="DashboardStyles\images\flags\hungarian.png" />
+    <Content Include="DashboardStyles\images\flags\spanish.png" />
+    <Content Include="DashboardStyles\images\flags\ukrainian.png" />
+    <Content Include="DashboardStyles\images\forms\add_files.png" />
+    <Content Include="DashboardStyles\images\forms\check.png" />
+    <Content Include="DashboardStyles\images\forms\check_white.png" />
+    <Content Include="DashboardStyles\images\forms\choice.png" />
+    <Content Include="DashboardStyles\images\forms\choice_white.png" />
+    <Content Include="DashboardStyles\images\forms\clear_results.png" />
+    <Content Include="DashboardStyles\images\forms\spinner_bottom.png" />
+    <Content Include="DashboardStyles\images\forms\spinner_top.png" />
+    <Content Include="DashboardStyles\images\forms\switch_handler.png" />
+    <Content Include="DashboardStyles\images\interface\arrow_left.png" />
+    <Content Include="DashboardStyles\images\interface\arrow_right.png" />
+    <Content Include="DashboardStyles\images\interface\breadcrumb_home.png" />
+    <Content Include="DashboardStyles\images\interface\filter.png" />
+    <Content Include="DashboardStyles\images\interface\lightbox_overlay.png" />
+    <Content Include="DashboardStyles\images\interface\loader.gif" />
+    <Content Include="DashboardStyles\images\interface\minus.png" />
+    <Content Include="DashboardStyles\images\interface\nav_arrow_left.png" />
+    <Content Include="DashboardStyles\images\interface\nav_arrow_right.png" />
+    <Content Include="DashboardStyles\images\interface\plupload_done.png" />
+    <Content Include="DashboardStyles\images\interface\plupload_error.png" />
+    <Content Include="DashboardStyles\images\interface\plupload_remove.png" />
+    <Content Include="DashboardStyles\images\interface\plupload_title.png" />
+    <Content Include="DashboardStyles\images\interface\plus.png" />
+    <Content Include="DashboardStyles\images\interface\slider_handle.png" />
+    <Content Include="DashboardStyles\images\interface\tables\sort_asc.png" />
+    <Content Include="DashboardStyles\images\interface\tables\sort_asc_disabled.png" />
+    <Content Include="DashboardStyles\images\interface\tables\sort_both.png" />
+    <Content Include="DashboardStyles\images\interface\tables\sort_desc.png" />
+    <Content Include="DashboardStyles\images\interface\tables\sort_desc_disabled.png" />
+    <Content Include="DashboardStyles\images\interface\typing.gif" />
+    <Content Include="DashboardStyles\images\interface\vertical_arrows.png" />
+    <Content Include="DashboardStyles\images\interface\zoom.png" />
+    <Content Include="DashboardStyles\images\logo.png" />
+    <Content Include="DashboardStyles\images\logo_dark.png" />
+    <Content Include="DashboardStyles\js\application.js" />
+    <Content Include="DashboardStyles\js\application_blank.js" />
+    <Content Include="DashboardStyles\js\bootstrap.min.js" />
+    <Content Include="DashboardStyles\js\charts\full\animated_1.js" />
+    <Content Include="DashboardStyles\js\charts\full\animated_2.js" />
+    <Content Include="DashboardStyles\js\charts\full\animated_3.js" />
+    <Content Include="DashboardStyles\js\charts\full\auto_empty.js" />
+    <Content Include="DashboardStyles\js\charts\full\auto_filled.js" />
+    <Content Include="DashboardStyles\js\charts\full\donut.js" />
+    <Content Include="DashboardStyles\js\charts\full\horizontal_bars.js" />
+    <Content Include="DashboardStyles\js\charts\full\multiple_axes.js" />
+    <Content Include="DashboardStyles\js\charts\full\pie.js" />
+    <Content Include="DashboardStyles\js\charts\full\pie_full.js" />
+    <Content Include="DashboardStyles\js\charts\full\simple_graph.js" />
+    <Content Include="DashboardStyles\js\charts\full\vertical_bars.js" />
+    <Content Include="DashboardStyles\js\charts\widgets\filled_blue.js" />
+    <Content Include="DashboardStyles\js\charts\widgets\filled_green.js" />
+    <Content Include="DashboardStyles\js\charts\widgets\filled_red.js" />
+    <Content Include="DashboardStyles\js\charts\widgets\updating_1.js" />
+    <Content Include="DashboardStyles\js\charts\widgets\updating_2.js" />
+    <Content Include="DashboardStyles\js\charts\widgets\updating_3.js" />
+    <Content Include="DashboardStyles\js\globalize\globalize.culture.de-DE.js" />
+    <Content Include="DashboardStyles\js\globalize\globalize.culture.ja-JP.js" />
+    <Content Include="DashboardStyles\js\globalize\globalize.js" />
+    <Content Include="DashboardStyles\js\plugins\charts\excanvas.min.js" />
+    <Content Include="DashboardStyles\js\plugins\charts\flot.animator.min.js" />
+    <Content Include="DashboardStyles\js\plugins\charts\flot.js" />
+    <Content Include="DashboardStyles\js\plugins\charts\flot.orderbars.js" />
+    <Content Include="DashboardStyles\js\plugins\charts\flot.pie.js" />
+    <Content Include="DashboardStyles\js\plugins\charts\flot.resize.min.js" />
+    <Content Include="DashboardStyles\js\plugins\charts\flot.time.js" />
+    <Content Include="DashboardStyles\js\plugins\charts\sparkline.min.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\autosize.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\inputlimit.min.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\inputmask.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\listbox.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\multiselect.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\select2.min.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\switch.min.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\tags.min.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\uniform.min.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\uploader\plupload.full.min.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\uploader\plupload.queue.min.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\validate.min.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\wysihtml5\toolbar.js" />
+    <Content Include="DashboardStyles\js\plugins\forms\wysihtml5\wysihtml5.min.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\colorpicker.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\datatables.min.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\daterangepicker.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\fancybox.min.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\fullcalendar.min.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\hover_dropdown.min.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\jgrowl.min.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\moment.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\mousewheel.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\prettify.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\tabletools.min.js" />
+    <Content Include="DashboardStyles\js\plugins\interface\timepicker.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="HomeStyles\css\bootstrap.min.css" />
+    <Content Include="HomeStyles\css\font-awesome.min.css" />
+    <Content Include="HomeStyles\css\material-design-iconic-font.min.css" />
+    <Content Include="HomeStyles\css\plugins.css" />
+    <Content Include="HomeStyles\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="HomeStyles\img\about\about-2.jpg" />
+    <Content Include="HomeStyles\img\about\about.jpg" />
+    <Content Include="HomeStyles\img\about\content-bg.png" />
+    <Content Include="HomeStyles\img\bg\page-banner.jpg" />
+    <Content Include="HomeStyles\img\bg\testimonial.jpg" />
+    <Content Include="HomeStyles\img\bg\video.jpg" />
+    <Content Include="HomeStyles\img\blog\1.jpg" />
+    <Content Include="HomeStyles\img\blog\2.jpg" />
+    <Content Include="HomeStyles\img\blog\3.jpg" />
+    <Content Include="HomeStyles\img\blog\footer\1.jpg" />
+    <Content Include="HomeStyles\img\blog\footer\2.jpg" />
+    <Content Include="HomeStyles\img\blog\sidebar\recent-1.jpg" />
+    <Content Include="HomeStyles\img\blog\sidebar\recent-2.jpg" />
+    <Content Include="HomeStyles\img\blog\sidebar\recent-3.jpg" />
+    <Content Include="HomeStyles\img\causes\1.jpg" />
+    <Content Include="HomeStyles\img\causes\2.jpg" />
+    <Content Include="HomeStyles\img\causes\3.jpg" />
+    <Content Include="HomeStyles\img\causes\single.jpg" />
+    <Content Include="HomeStyles\img\clients\1.png" />
+    <Content Include="HomeStyles\img\clients\2.png" />
+    <Content Include="HomeStyles\img\clients\3.png" />
+    <Content Include="HomeStyles\img\clients\4.png" />
+    <Content Include="HomeStyles\img\clients\5.png" />
+    <Content Include="HomeStyles\img\favicon.ico" />
+    <Content Include="HomeStyles\img\flickr\1.jpg" />
+    <Content Include="HomeStyles\img\flickr\2.jpg" />
+    <Content Include="HomeStyles\img\flickr\3.jpg" />
+    <Content Include="HomeStyles\img\flickr\4.jpg" />
+    <Content Include="HomeStyles\img\flickr\5.jpg" />
+    <Content Include="HomeStyles\img\flickr\6.jpg" />
+    <Content Include="HomeStyles\img\flickr\7.jpg" />
+    <Content Include="HomeStyles\img\funfact\1.png" />
+    <Content Include="HomeStyles\img\funfact\2.png" />
+    <Content Include="HomeStyles\img\funfact\3.png" />
+    <Content Include="HomeStyles\img\funfact\4.png" />
+    <Content Include="HomeStyles\img\gallery\1.jpg" />
+    <Content Include="HomeStyles\img\gallery\2.jpg" />
+    <Content Include="HomeStyles\img\gallery\3.jpg" />
+    <Content Include="HomeStyles\img\gallery\4.jpg" />
+    <Content Include="HomeStyles\img\gallery\5.jpg" />
+    <Content Include="HomeStyles\img\gallery\6.jpg" />
+    <Content Include="HomeStyles\img\gallery\big-1.jpg" />
+    <Content Include="HomeStyles\img\gallery\big-2.jpg" />
+    <Content Include="HomeStyles\img\gallery\big-3.jpg" />
+    <Content Include="HomeStyles\img\gallery\big-4.jpg" />
+    <Content Include="HomeStyles\img\gallery\big-5.jpg" />
+    <Content Include="HomeStyles\img\gallery\big-6.jpg" />
+    <Content Include="HomeStyles\img\gallery\small-thumb-1.jpg" />
+    <Content Include="HomeStyles\img\gallery\small-thumb-2.jpg" />
+    <Content Include="HomeStyles\img\gallery\small-thumb-3.jpg" />
+    <Content Include="HomeStyles\img\gallery\small-thumb-4.jpg" />
+    <Content Include="HomeStyles\img\gallery\small-thumb-5.jpg" />
+    <Content Include="HomeStyles\img\gallery\small-thumb-6.jpg" />
+    <Content Include="HomeStyles\img\hero\1.jpg" />
+    <Content Include="HomeStyles\img\hero\2.jpg" />
+    <Content Include="HomeStyles\img\hero\3.jpg" />
+    <Content Include="HomeStyles\img\hero\video.jpg" />
+    <Content Include="HomeStyles\img\icon\caret-down.png" />
+    <Content Include="HomeStyles\img\icon\plus-2.png" />
+    <Content Include="HomeStyles\img\icon\plus.png" />
+    <Content Include="HomeStyles\img\logo-2.png" />
+    <Content Include="HomeStyles\img\logo.png" />
+    <Content Include="HomeStyles\img\project\1.jpg" />
+    <Content Include="HomeStyles\img\project\2.jpg" />
+    <Content Include="HomeStyles\img\project\3.jpg" />
+    <Content Include="HomeStyles\img\project\single.jpg" />
+    <Content Include="HomeStyles\img\project\small-1.jpg" />
+    <Content Include="HomeStyles\img\service\1.png" />
+    <Content Include="HomeStyles\img\service\2.png" />
+    <Content Include="HomeStyles\img\service\3.png" />
+    <Content Include="HomeStyles\img\service\4.png" />
+    <Content Include="HomeStyles\img\speakers\1.jpg" />
+    <Content Include="HomeStyles\img\speakers\2.html" />
+    <Content Include="HomeStyles\img\speakers\3.jpg" />
+    <Content Include="HomeStyles\img\testimonial\1.jpg" />
+    <Content Include="HomeStyles\img\testimonial\2.jpg" />
+    <Content Include="HomeStyles\img\testimonial\3.jpg" />
+    <Content Include="HomeStyles\img\volunteer\1.jpg" />
+    <Content Include="HomeStyles\img\volunteer\2.jpg" />
+    <Content Include="HomeStyles\img\volunteer\3.jpg" />
+    <Content Include="HomeStyles\img\volunteer\4.jpg" />
+    <Content Include="HomeStyles\js\ajax-mail.js" />
+    <Content Include="HomeStyles\js\bootstrap.bundle.min.js" />
+    <Content Include="HomeStyles\js\main.js" />
+    <Content Include="HomeStyles\js\map.js" />
+    <Content Include="HomeStyles\js\plugins.js" />
+    <Content Include="HomeStyles\js\vendor\jquery-1.12.0.min.js" />
+    <Content Include="HomeStyles\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="HomeStyles\style.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\get_state_village_districts.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ExpertController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KisanKendraController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FIleUpload.cs" />
+    <Compile Include="Models\GeneratePasswords.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblAdmin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblArticle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblDistrict.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblExpertDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblFarmerDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblKisaanKendraDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblQueryDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRegularIssue.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSiteVisit.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSoilTesting.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblStaffDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblState.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblStatusDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblVillage.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="DashboardStyles\css\icons\icons.eot" />
+    <Content Include="DashboardStyles\css\icons\icons.ttf" />
+    <Content Include="DashboardStyles\css\icons\icons.woff" />
+    <Content Include="DashboardStyles\css\icons\iconsd41d.eot" />
+    <Content Include="HomeStyles\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="HomeStyles\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="HomeStyles\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="HomeStyles\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="HomeStyles\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="HomeStyles\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="HomeStyles\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="HomeStyles\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Dashboard.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\HomeLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\UserLogin.cshtml" />
+    <Content Include="Views\Home\user_registration.cshtml" />
+    <Content Include="Views\Home\SuccessPage.cshtml" />
+    <Content Include="Views\Admin\view_farmer_registration.cshtml" />
+    <Content Include="Views\Home\expert_registration.cshtml" />
+    <Content Include="Views\Admin\view_expert_registration.cshtml" />
+    <Content Include="Views\Shared\ExpertLayout.cshtml" />
+    <Content Include="Views\Expert\Dashboard.cshtml" />
+    <Content Include="Views\Expert\Index.cshtml" />
+    <Content Include="Views\Expert\add_articles.cshtml" />
+    <Content Include="Views\Expert\view_articles.cshtml" />
+    <Content Include="Views\Shared\UserLayout.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Dashboard.cshtml" />
+    <Content Include="Views\User\Regular_Issue.cshtml" />
+    <Content Include="Views\User\view_regular_issue_history.cshtml" />
+    <Content Include="Views\Expert\solve_regular_issue.cshtml" />
+    <Content Include="Views\User\Query.cshtml" />
+    <Content Include="Views\User\view_QueryHistory.cshtml" />
+    <Content Include="Views\Admin\add_staff.cshtml" />
+    <Content Include="Views\Admin\view_staff_list.cshtml" />
+    <Content Include="Views\Admin\EnqueryDetails.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Shared\StaffLayout.cshtml" />
+    <Content Include="Views\Staff\view_Query.cshtml" />
+    <Content Include="Views\Staff\Dashboard.cshtml" />
+    <Content Include="Views\Staff\view_solved_Query.cshtml" />
+    <Content Include="Views\User\applyrealtimeAssistent.cshtml" />
+    <Content Include="Views\User\view_applyrealtimeAssistent.cshtml" />
+    <Content Include="Views\User\view_RTA_details.cshtml" />
+    <Content Include="Views\Admin\rta_assign.cshtml" />
+    <Content Include="Views\Expert\view_visit_request.cshtml" />
+    <Content Include="Views\Expert\ViewDetails_asssign_RTA.cshtml" />
+    <Content Include="Views\Admin\add_new_Details.cshtml" />
+    <Content Include="Views\Admin\view_all_kk_details.cshtml" />
+    <Content Include="Views\User\apply_soil_test.cshtml" />
+    <Content Include="Views\User\view_soiltest_history.cshtml" />
+    <Content Include="Views\Admin\Soiltest_Expert_assign.cshtml" />
+    <Content Include="Views\Expert\view_soiltest_request.cshtml" />
+    <Content Include="Views\KisanKendra\Index.cshtml" />
+    <Content Include="Views\Shared\KisanKendraLayout.cshtml" />
+    <Content Include="Views\KisanKendra\view_farmer_registration.cshtml" />
+    <Content Include="Views\KisanKendra\Dashboard.cshtml" />
+    <Content Include="Views\Home\Multi_Login.cshtml" />
+    <Content Include="Views\User\view_Profile.cshtml" />
+    <Content Include="Views\Admin\View_Profile.cshtml" />
+    <Content Include="Views\Staff\staff_profile.cshtml" />
+    <Content Include="Views\Expert\View_Profile.cshtml" />
+    <Content Include="Views\Home\KK_Register.cshtml" />
+    <Content Include="Views\User\ViewStatus.cshtml" />
+    <Content Include="Views\Admin\View_Expert_Profile.cshtml" />
+    <Content Include="Views\Admin\articals.cshtml" />
+    <Content Include="Views\Home\aboutus.cshtml" />
+    <Content Include="Views\Home\contactus.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\Home\articals.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ExpertDocuments\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53628</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53628/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

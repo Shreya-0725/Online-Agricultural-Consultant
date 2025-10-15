@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Query";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+
+        <div id="reportrange" class="range">
+
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Breadcrumbs line -->
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li><a href="/User/Dashboard">Dashboard</a></li>
+            <li class="active">Query</li>
+        </ul>
+    </div>
+    <!-- /breadcrumbs line -->
+    <!-- Callout -->
+    @if (TempData["MSGQuery"] != null)
+    {
+        <div class="callout callout-success fade in">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h1>@TempData["MSGQuery"]</h1>
+        </div>
+    }
+
+    <form class="form-horizontal" action="/User/Query" method="post" role="form">
+        <div class="panel panel-default">
+            <center>
+                <h1>
+                    <u>ASK QUERY</u>
+                </h1>
+            </center>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-right" style="font-size:15px;"><b>Title :</b></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="Title" required placeholder="Enter Title">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-right" style="font-size:15px;"><b>Query :</b></label>
+                    <div class="col-sm-10">
+                        <textarea rows="5" cols="5" name="Content" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-actions text-right">
+                    <input type="submit" value="Submit form" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,202 @@
+﻿@using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "expert_registration";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+    var States = (List<tblState>)ViewBag.States;
+}
+
+<div id="donation-area" class="donation-area section pb-120">
+    <div class="container">
+        <div class="row">
+            @*<div class="col-1"></div>*@
+            <div class="col-12">
+                <div class="donation-title text-center fix">
+                    <h1>Expert Registration</h1>
+                </div>
+                <!--  Donation Form  -->
+                <div class="donation-form">
+                    <form action="/Home/expert_registration" method="post" enctype="multipart/form-data">
+                        @if (@TempData["eprt"] != null)
+                        {
+                            <p style="color:green">@TempData["eprt"]</p>
+                        }
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label><b>FirstName</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="FirstNAme" required placeholder="Enter Your FirstName">
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>MiddleName</b><span style="color:red"> </span></label>
+                                    <input type="text" class="form-control" name="MiddleName" placeholder="Enter your MiddleName">
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>LastName</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="LastName" required placeholder="Enter your LastName">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label><b>Gender</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="Gender" required>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label><b>Mobile</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="MobileNo" required placeholder="Enter Mobile">
+
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label><b>Email-ID</b><span style="color:red"> </span></label>
+                                    <input type="text" class="form-control" name="EmailID" required placeholder="Enter Email">
+
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label><b>Dob</b><span style="color:red"> *</span></label>
+                                    <input type="date" class="form-control" name="Dob" required>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <label><b>State</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="State" id="StateName" onchange="return findDistrictList();" required>
+                                        <option value="">-Select State-</option>
+                                        @foreach (var item in States)
+                                        {
+                                            <option value="@item.StateCode">@item.StateName</option>
+                                        }
+                                    </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>District</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="District" id="DistrictNAme" required>
+                                        <option value="">-Select District-</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>Full Address</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="Address" required placeholder="Enter Address">
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label><b>Image</b><span style="color:red"> *</span></label>
+                                    <input type="file" class="form-control" name="Image" id="Image" required>
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>Expert In</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="ExpertIn" required placeholder="Enter ExpertIn">
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>SpecialistIn</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="SpecialistIn" required placeholder="Enter SpecialistIn">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label><b>Education Level</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="EducationLevel" required>
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>EducationDetails</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="EducationDetails" required placeholder="Enter EducationDetails">
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>CertificateDetails</b><span style="color:red"> </span></label>
+                                    <input type="text" class="form-control" name="CertificateDetails" placeholder="Enter Certificat eDetails">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                         
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label><b>Experience In Yrs</b><span style="color:red"> *</span></label>
+                                    <input type="number" min="1" class="form-control" name="ExperienceInYrs" required>
+
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label><b>Availability for</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="Availability" required>
+                                        <option value="Chat">Chat</option>
+                                        <option value="Visit">Visit</option>
+                                        <option value="Other">Both</option>
+                                    </select>
+
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label><b>Aadhar No</b><span style="color:red"> </span></label>
+                                    <input type="text" class="form-control" name="AadharNo" placeholder="Enter Aadhar No">
+
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label><b>PAN No</b><span style="color:red"> </span></label>
+                                    <input type="text" class="form-control" name="PANNo" placeholder="Enter Pan No">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success" value="Register">
+                            <input type="reset" class="btn btn-warning" value="Clear">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/get_state_village_districts.js"></script>

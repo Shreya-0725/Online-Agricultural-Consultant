@@ -1,0 +1,134 @@
+﻿@model IEnumerable<Online_Agricultural_Consultant.Models.tblStaffDetail>
+
+@{
+    ViewBag.Title = "view_staff_list";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <br />
+            <h1>
+                <u>Manage Staff</u>
+            </h1>
+        </div>
+    </div>
+    @*<div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li><a href="/Admin/Dashboard">Dashboard</a></li>
+            <li class="active">View Farmer Registration </li>
+        </ul>
+    </div>*@
+    <div class="tabbable page-tabs">
+        <div class="tab-content">
+
+            <div class="tab-pane active fade in" id="inside">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <div class="datatable ">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EmpId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Password)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.MobileNo)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Dob)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FullAddress)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Image)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Department)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CreatedDate)
+                                        </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 0;
+                                        foreach (var item in Model)
+                                        {
+                                            i++;
+                                    <tr>
+                                        <td>
+                                            @i
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EmpId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Password)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                       
+                                            @Html.DisplayFor(modelItem => item.MiddleName)
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MobileNo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Dob)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FullAddress)
+                                        </td>
+                                        <td>
+                                            <img src="@Html.DisplayFor(modelItem => item.Image)" style="height:50px;width:50px;"/>
+                                            
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Department)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                                        </td>
+                                        <th>
+                                            <a href="" class="btn btn-danger btn-xs">Delete</a>
+                                            <a href="/admin/View_Profile?ID=@item.EmpId" class="btn btn-success btn-xs">View Details</a>
+                                        </th>
+                                      
+                                    </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>No Data !</h3>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

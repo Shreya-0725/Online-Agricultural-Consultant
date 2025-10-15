@@ -1,0 +1,96 @@
+﻿
+@using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "add_new_Details";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+    var States = (List<tblState>)ViewBag.States;
+}
+
+<div id="donation-area" class="donation-area section pb-120">
+    <div class="container">
+        <div class="row">
+            @*<div class="col-1"></div>*@
+            <div class="col-12">
+                <div class="donation-title text-center fix">
+                    <h1>Registration</h1>
+                </div>
+                <!--  Donation Form  -->
+                <div class="donation-form">
+                    <form action="/Home/KK_Register" method="post" enctype="multipart/form-data">
+                        @if (@TempData["eprt"] != null)
+                        {
+                            <p style="color:green">@Html.Raw(TempData["eprt"])</p>
+                        }
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label><b>Owner Name</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="Owner" required placeholder="Enter Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label><b>Mobile</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="Mobile" required placeholder="Enter Mobile">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label><b>State</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="State" id="StateName" onchange="return findDistrictList();" required>
+                                        <option value="">-Select State-</option>
+                                        @foreach (var item in States)
+                                        {
+                                            <option value="@item.StateCode">@item.StateName</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label><b>District</b><span style="color:red"> </span></label>
+                                    <select class="form-control" name="District" id="DistrictNAme" required>
+                                        <option value="">-Select District-</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label><b>Village</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="Village" required placeholder="Enter Blockcode">
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <label><b>Block</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="Block" required placeholder="Enter Blockcode">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label><b>Password</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="Password" required placeholder="Enter Password">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success" value="Register">
+                            <input type="reset" class="btn btn-warning" value="Clear">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/get_state_village_districts.js"></script>

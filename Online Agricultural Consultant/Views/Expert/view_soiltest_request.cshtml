@@ -1,0 +1,196 @@
+﻿@model IEnumerable<Online_Agricultural_Consultant.Models.tblSoilTesting>
+    @using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "view_soiltest_request";
+    Layout = "~/Views/Shared/ExpertLayout.cshtml";
+    Online_Agricultural_Consultant_DBEntities db = new Online_Agricultural_Consultant_DBEntities();
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            @*<h3>View Articles</h3>*@
+        </div>
+    </div>
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li><a href="/Expert/Dashboard">Dashboard</a></li>
+            <li class="active">View Soil test Requests </li>
+        </ul>
+    </div>
+    <div class="tabbable page-tabs">
+        <div class="tab-content">
+            @if (TempData["mmm"] != null)
+            {
+                @Html.Raw(TempData["mmm"])
+            }
+            <div class="tab-pane active fade in" id="inside">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <div class="datatable">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Test-ID
+                                        </th>
+                                        <th>
+                                            FarmerID
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Address
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Acidity)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PhLevel)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SoilType)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nutrient)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ApplicationDate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TestedBy)
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        foreach (var item in Model)
+                                        {
+                                            var dataa = db.tblFarmerDetails.Where(a => a.FarmerId == item.FarmerId).FirstOrDefault();
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TestId)
+                                        </td>
+                                        <td>
+                                            @dataa.FirstName
+                                        </td>
+                                        <td>
+                                            @dataa.Address,  @dataa.State, @dataa.PINCode
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FarmerId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Acidity)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PhLevel)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoilType)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nutrient)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ApplicationDate)
+                                        </td>
+                                        @if (item.ClosingDate != null)
+                                        {
+                                            <td style="color:green">
+                                                <h3>@item.TestedBy</h3>
+                                            </td>
+                                            <td>
+                                                <h3>Tested</h3>
+                                            </td>
+
+
+
+                                        }
+                                        else
+                                        {
+                                            <td style="color:red">
+                                                <h3>Pending</h3>
+                                            </td>
+                                            <td>
+                                                <button type="button" onclick="return callmdl('@item.ID');" class="btn btn-success">Update Data</button>
+                                            </td>
+                                        }
+
+
+                                    </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>No Data !</h3>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script>
+    function callmdl(value) {
+        $("#ID_").val(value);
+        $('#ModalLoginForm').modal('show');
+    }
+</script>
+
+<div id="ModalLoginForm" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="/Expert/update_Soiltest_Data">
+                    <div class="row">
+                        <div class="col-sm-12" style="    padding: 30px;">
+                            <div class="form-group">
+                                <label for="email">Acidity:</label>
+                                <input type="hidden" id="ID_" name="ID" value="" />
+                                <input type="text" class="form-control" name="Acidity" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">PhLevel:</label>
+                                <input type="text" class="form-control" name="PhLevel" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">SoilType:</label>
+                                <input type="text" class="form-control" name="SoilType" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Nutrient:</label>
+                                <input type="text" class="form-control" name="Nutrient" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">HealthCardNo:</label>
+                                <input type="text" class="form-control" name="HealthCardNo" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

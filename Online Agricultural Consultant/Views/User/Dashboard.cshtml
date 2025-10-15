@@ -1,0 +1,50 @@
+﻿@using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+    Online_Agricultural_Consultant_DBEntities db = new Online_Agricultural_Consultant_DBEntities();
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <h3> </h3>
+        </div>
+    </div>
+    <center>
+
+        <h1><u>Dashboard</u></h1>
+    </center>
+    <!-- Recent activity -->
+    <div class="block">
+        <h1 class="heading-hr"><i class="icon-file"></i> Our Experts To Provide You Solution</h1>
+        <ul class="media-list">
+            @{
+                var Exprts = db.tblExpertDetails.ToList();
+            }
+            @foreach (var item in Exprts)
+            {
+                <li class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="@item.Image" alt="">
+                    </a>
+                    <div class="media-body">
+                        <div class="clearfix">
+                            <a href="#" class="media-heading"><h2>@item.FirstName @item.LastName</h2></a>
+                            <span class="media-notice"><h1>@item.CreateDate</h1></span>
+                        </div>
+
+                    </div>
+                </li>
+            }
+
+
+        </ul>
+    </div>
+    <!-- /recent activity -->
+
+</div>
+
+

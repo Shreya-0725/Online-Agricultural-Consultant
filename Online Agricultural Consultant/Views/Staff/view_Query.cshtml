@@ -1,0 +1,151 @@
+﻿@model IEnumerable<Online_Agricultural_Consultant.Models.tblQueryDetail>
+
+@{
+    ViewBag.Title = "view_Query";
+    Layout = "~/Views/Shared/StaffLayout.cshtml";
+}
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <br />      <br />
+            <h1><u>Manage Query</u></h1>
+        </div>
+    </div>
+    <br />
+    <div class="tabbable page-tabs">
+        <div class="tab-content">
+            @if (TempData["mmm2"] != null)
+            {
+                @Html.Raw(TempData["mmm2"])
+            }
+            <div class="tab-pane active fade in" id="inside">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <div class="datatable">
+                            <table class="table">
+                                <thead style="font-size:15px;">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>
+                                            FarmerID
+                                        </th>
+                                        <th>
+                                            Title
+                                        </th>
+                                        <th>
+                                            Query
+                                        </th>
+                                        <th>
+                                            Date
+                                        </th>
+                                        <th>
+                                            SolvedBy
+                                        </th>
+                                        <th>
+                                            SolutionDate
+                                        </th>
+                                        <th>
+                                            Solution
+                                        </th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 0;
+                                        foreach (var item in Model)
+                                        {
+                                            i++;
+                                            <tr>
+                                                <td>@i</td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.FarmerId)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Title)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Content)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.CreationDate)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SolvedBy)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SolutionDate)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Solution)
+                                                </td>
+
+                                                @if (item.Solution != null)
+                                                {
+                                                    <td style="color:@(item.Solution == null ? "red" : "green") ">
+                                                        <h3>  @item.Solution</h3>
+                                                    </td>
+
+                                                }
+                                                <td>
+                                                    @if (item.Solution == null)
+                                                    {
+                                                        <button type="button" onclick="return callmdl('@item.QueryNo');" class="btn btn-success">Solution</button>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>No Data !</h3>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script>
+    function callmdl(value) {
+        $("#ID_").val(value);
+        $('#ModalLoginForm').modal('show');
+    }
+</script>
+
+<div id="ModalLoginForm" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="/Staff/AddSolution">
+                    <div class="row">
+                        <div class="col-sm-12" style="    padding: 30px;">
+                            <div class="form-group">
+                                <label for="email">Solution:</label>
+                                <input type="hidden" id="ID_" name="ID_" value="" />
+                                <input type="text" class="form-control" placeholder="Give Solution" name="Solution" id="Solution">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

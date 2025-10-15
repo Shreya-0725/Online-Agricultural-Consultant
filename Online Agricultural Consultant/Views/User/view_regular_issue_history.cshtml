@@ -1,0 +1,143 @@
+﻿@model IEnumerable<Online_Agricultural_Consultant.Models.tblRegularIssue>
+    @using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "view_regular_issue_history";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+    Online_Agricultural_Consultant_DBEntities db = new Online_Agricultural_Consultant_DBEntities();
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <h3></h3>
+        </div>
+    </div>
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li><a href="/Expert/Dashboard">Dashboard</a></li>
+            <li class="active">View regular_issue_history </li>
+        </ul>
+    </div>
+    <div class="tabbable page-tabs">
+        <div class="tab-content">
+            @if (TempData["mmm1"] != null)
+            {
+                @Html.Raw(TempData["mmm1"])
+            }
+            <div class="tab-pane active fade in" id="inside">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <div class="datatable">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Subjects</th>
+                                        <th>Issue Type</th>
+                                        <th>Description</th>
+                                        <th>create Date</th>
+                                        <th>Solved Date</th>
+                                        <th>Solution</th>
+                                        <th>Feedback</th>
+                                        <th>Solved_By</th>
+                                        <th>status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 0;
+                                        foreach (var item in Model)
+                                        {
+                                            i++;
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@item.Subject</td>
+                                        <td>@item.IssueType</td>
+                                        <td>@item.Description</td>
+                                        <td>@item.CreateDate</td>
+                                        <td>@item.SolutionDate</td>
+                                        <td>@item.Solution</td>
+                                        <td>@item.FeedBack</td>
+                                        <td>
+                                            @if (item.SolvedBy != null)
+                                            {
+                                                var dad = db.tblExpertDetails.Where(a => a.ExpertId == item.SolvedBy).FirstOrDefault();
+
+                                                <h3>@dad.FirstName</h3>
+                                            }
+                                        </td>
+                                        @if (item.Status != null)
+                                        {
+                                            <td style="color:@(item.Status == "pending" ? "red" : "green") ">
+                                                <h3>  @item.Status</h3>
+                                            </td>
+
+                                        }
+                                        <td>
+
+                                            @if (item.FeedBack == null && item.Status=="Solved")
+                                            {
+
+                                                <button type="button" onclick="return callmdl('@item.IssueId');" class="btn btn-warning btn-sm">Give Feedback</button>
+                                            }
+                                        </td>
+                                    </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>No Data !</h3>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script>
+    function callmdl(value) {
+        $("#ID_").val(value);
+        $('#ModalLoginForm').modal('show');
+    }
+</script>
+
+<div id="ModalLoginForm" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="/User/give_feedback">
+                    <div class="row">
+                        <div class="col-sm-12" style="    padding: 30px;">
+                            <div class="form-group">
+                                <label for="email">Feedback:</label>
+                                <input type="hidden" id="ID_" name="ID_" value="" />
+                                <input type="text" class="form-control" placeholder="Give Feedback" name="Feedback" id="Feedback">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

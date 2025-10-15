@@ -1,0 +1,98 @@
+﻿@using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "add_new_Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    var States = (List<tblState>)ViewBag.States;
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+
+        <div id="reportrange" class="range">
+
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Breadcrumbs line -->
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            @*<li><a href="/Admin/Dashboard">Dashboard</a></li>
+            <li class="active">Add Staff</li>*@
+        </ul>
+    </div>
+    <!-- /breadcrumbs line -->
+    <!-- Callout -->
+    @if (TempData["mmmm"] != null)
+    {
+        <div class="callout callout-success fade in">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h1>@TempData["mmmm"]</h1>
+        </div>
+    }
+    <center><h1>Registration</h1></center>
+    <form class="form-horizontal" action="/Admin/add_new_Details" method="post" role="form" enctype="multipart/form-data">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <p><b>State</b><span style="color:red"> *</span></p>
+                        <select class="form-control" name="State" id="StateName" onchange="return findDistrictList();" required>
+                            <option value="">-Select State-</option>
+                            @foreach (var item in States)
+                            {
+                                <option value="@item.StateCode">@item.StateName</option>
+                            }
+                        </select>
+
+                    </div>
+
+                    <div class="col-sm-3">
+                        <p><b>District</b><span style="color:red"> *</span></p>
+                        <select class="form-control" name="District" id="DistrictNAme" required>
+                            <option value="">-Select District-</option>
+                        </select>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <p>Block</p>
+                        <input type="text" class="form-control" name="Block" required placeholder="Enter Blockcode">
+                    </div>
+                </div>
+                <div class="form-group">
+                        <div class="col-sm-3">
+                            <p>Village</p>
+                            <input type="text" class="form-control" name="Village" required placeholder="Enter Blockcode">
+                    </div>
+
+                    <div class="col-sm-3">
+                        <p>NoOfFarmers</p>
+                        <input type="text" class="form-control" name="NoOfFarmers" placeholder="Enter NoOfFarmers">
+                    </div>
+                    <div class="col-sm-3">
+                        <p>NoOfRegApp</p>
+                        <input type="text" class="form-control" name="NoOfRegApp" required placeholder="Enter NoOfRegApp">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <p>NoOfSiteVisitApp</p>
+                        <input type="text" class="form-control" name="NoOfSiteVisitApp" required placeholder="Enter NoOfSiteVisitApp">
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-9">
+                        <input type="submit" value="Submit form" class="btn btn-success">
+                        <input type="reset" value="Clear" class="btn btn-warning">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="~/Scripts/get_state_village_districts.js"></script>

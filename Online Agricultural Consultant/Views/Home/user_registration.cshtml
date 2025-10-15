@@ -1,0 +1,161 @@
+﻿@using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "user_registration";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+    var States = (List<tblState>)ViewBag.States;
+}
+
+<div id="donation-area" class="donation-area section pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="donation-title text-center fix">
+                    <h1>Registration</h1>
+                </div>
+                <!--  Donation Form  -->
+                <div class="donation-form">
+                    <form action="/Home/user_registration" method="post">
+                        @if (@TempData["user_registration_msg"] != null)
+                        {
+                            <p style="color:red">@TempData["user_registration_msg"]</p>
+                        }
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label><b>FirstName</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="FirstName" required placeholder="Enter Your FirstName">
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>MiddleName</b><span style="color:red"> </span></label>
+                                    <input type="text" class="form-control" name="MiddleName" placeholder="Enter your MiddleName">
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>LastName</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="LastName" required placeholder="Enter your LastName">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label><b>State</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="State" id="StateName" onchange="return findDistrictList();" required>
+                                        <option value="">-Select State-</option>
+                                        @foreach (var item in States)
+                                        {
+                                            <option value="@item.StateCode">@item.StateName</option>
+                                        }
+                                    </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>District</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="District" id="DistrictNAme" required>
+                                        <option value="">-Select District-</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>Block</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="Block" value="@(Session["Block"] ?? "")" required placeholder="Enter Block Code">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label><b>Pincode</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="Pincode" required placeholder="Enter Pincode">
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>Address</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="Address" required placeholder="Enter Address">
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>Mobile</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="MobileNo" required placeholder="Enter Mobile">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label><b>Dob</b><span style="color:red"> *</span></label>
+                                    <input type="date" class="form-control" name="Dob" required>
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>Gender</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="Gender" required>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>Farmer Type</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="FarmerType" required>
+                                        <option value="">-Select FarmerType-</option>
+                                        <option value="small">small</option>
+                                        <option value="marginal">marginal</option>
+                                        <option value="others">others</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label><b>Farmer Category</b><span style="color:red"> *</span></label>
+                                    <select class="form-control" name="FarmerCategory" required>
+                                        <option value="">-Select Category-</option>
+                                        <option value="owner">owner</option>
+                                        <option value="tenant">tenant</option>
+                                        <option value="share">share</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label><b>Aadhar No</b><span style="color:red"> *</span></label>
+                                    <input type="text" class="form-control" name="AadharNo" required placeholder="Enter AadharNo">
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success" value="Register">
+                            <input type="reset" class="btn btn-warning" value="Clear">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/get_state_village_districts.js"></script>
+

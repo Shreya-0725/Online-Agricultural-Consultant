@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<div id="donation-area" class="donation-area section pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="donation-title text-center fix">
+                    <h1>Expert Login</h1>
+                </div>
+                <!--  Donation Form  -->
+                <div class="donation-form">
+                    <form action="/Expert/Login" method="post">
+                        @if (@TempData["userloginmsg"] != null)
+                        {
+                            <p style="color:red">@TempData["userloginmsg"]</p>
+                        }
+                        <div class="form-group">
+                            <label><b>User ID</b><span style="color:red"> *</span></label>
+                            <input type="text" class="form-control" name="AdminUserID" required placeholder="Enter Your Id">
+                        </div>
+                        <div class="form-group">
+                            <label><b>Password</b><span style="color:red"> *</span></label>
+                            <input type="text" class="form-control" name="password" required placeholder="Enter your Password">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

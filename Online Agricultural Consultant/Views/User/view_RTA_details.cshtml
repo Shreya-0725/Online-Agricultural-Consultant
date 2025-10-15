@@ -1,0 +1,120 @@
+﻿@model Online_Agricultural_Consultant.Models.tblSiteVisit
+@{
+    ViewBag.Title = "view_RTA_details";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+
+        <div id="reportrange" class="range">
+
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Breadcrumbs line -->
+    <!-- Callout -->
+    @if (TempData["MSG__"] != null)
+    {
+        <div class="callout callout-success fade in">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h3>@TempData["MSG__"]</h3>
+        </div>
+    }
+
+    <form class="form-horizontal" action="/USer/applyrealtimeAssistent" method="post" role="form" enctype="multipart/form-data">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">Field Type :<b> @Model.FieldType</b></span>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">Field Location :<b> @Model.FieldLocation</b></span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">Crop Description :<b> @Model.CropDesc</b></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">Problem Description :<b> @Model.ProblemDesc</b></span>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">Date :<b> @Model.CreationDate</b></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">Assigned Assistent :<b> @(Model.AssignedAsst ?? "--")</b></span>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">Visit Date :<b>  @(Model.VisitDate)</b></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">Visit Interval :<b> @(Model.VisitIntervalInHrs)</b></span>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">FeedBack :<b>  @(Model.Feedback ?? "--")</b></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span style="font-size:20px;">Solution Date :<b> @(Model.SolutionDate)</b></span>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-sm-9">
+                        @if (Model.ClosingDate != null)
+                        {
+                            <a value="Submit form" onclick="return callmdl('@Model.ID')" class="btn btn-success">Give Feedback</a>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    function callmdl(value) {
+        $("#ID_").val(value);
+        $('#ModalLoginForm').modal('show');
+    }
+</script>
+
+<div id="ModalLoginForm" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="/User/give_feedback_RTA">
+                    <div class="row">
+                        <div class="col-sm-12" style="    padding: 30px;">
+                            <div class="form-group">
+                                <label for="email">Feedback:</label>
+                                <input type="hidden" id="ID_" name="ID_" value="" />
+                                <input type="text" class="form-control" placeholder="Give Feedback" name="Feedback" id="Feedback">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

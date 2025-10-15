@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Online_Agricultural_Consultant.Models.tblKisaanKendraDetail>
+@using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "view_all_kk_details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    Online_Agricultural_Consultant_DBEntities db = new Online_Agricultural_Consultant_DBEntities();
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <br /><br /><h1> <u>
+                   Manage Kisan Seva Kendra Details</u></h1>
+        </div>
+    </div>
+   @if (TempData["kkmsg"]!=null)
+   {
+       @Html.Raw(TempData["kkmsg"]);
+   }
+    <div class="tabbable page-tabs">
+        <div class="tab-content">
+
+            <div class="tab-pane active fade in" id="inside">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <div class="datatable ">
+                            <table class="table table-responsive">
+                                <thead style="font-size:12px;">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.KKId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Password)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.State)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.District)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Block)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Village)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NoOfFarmers)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NoOfRegApp)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NoOfSiteVisitApp)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 0;
+                                        foreach (var item in Model)
+                                        {
+                                            i++;
+                                    <tr>
+                                        <td>
+                                            @i
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KKId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Password)
+                                        </td>
+                                        <td>
+                                            @{ 
+                                                int codestate =Convert.ToInt32(item.State);
+                                            }
+                                            @db.tblStates.Where(a => a.StateCode == codestate).FirstOrDefault().StateName;
+                                        </td>
+                                        <td>
+                                            @{
+                                                int codeDistrict = Convert.ToInt32(item.District);
+                                            }
+                                            @db.tblDistricts.Where(a => a.DestrictCode == codeDistrict).FirstOrDefault().DestrictName;
+
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Block)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Village)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NoOfFarmers)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NoOfRegApp)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NoOfSiteVisitApp)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            <a href="/admin/DeleteKKdetails?ID=@item.ID" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>No Data !</h3>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

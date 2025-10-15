@@ -1,0 +1,187 @@
+﻿@model IEnumerable<Online_Agricultural_Consultant.Models.tblSoilTesting>
+@using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "rta_assign";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    var Expert = (List<tblExpertDetail>)ViewBag.Experts;
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <h3></h3>
+        </div>
+    </div>
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li><a href="/Admin/Dashboard">Dashboard</a></li>
+            <li class="active">View Soil test Application </li>
+        </ul>
+    </div>
+    <div class="tabbable page-tabs">
+        <div class="tab-content">
+            @if (TempData["MSG__1"] != null)
+            {
+                @Html.Raw(TempData["MSG__1"])
+            }
+            <div class="tab-pane active fade in" id="inside">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <div class="datatable">
+                            <table class="table">
+                                <thead style="font-size:15px;">
+                                    <tr>
+                                        <th>
+                                            Test-ID
+                                        </th>
+                                        <th>
+                                           FarmerID
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Acidity)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PhLevel)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SoilType)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nutrient)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ApplicationDate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TestedBy)
+                                        </th>
+                                        <th>
+                                            Closing Date
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.TestId)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.FarmerId)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Acidity)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.PhLevel)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SoilType)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Nutrient)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ApplicationDate)
+                                                </td>
+                                                <td>
+                                                    @if (item.TestedBy != null)
+                                                    {
+                                                        <b>@item.TestedBy</b>
+                                                    }
+                                                    else
+                                                    {
+                                                        <b style="color:red">Pending</b>
+                                                    }
+                                                </td>
+                                               
+                                                <td>
+                                                    @if (item.ClosingDate != null)
+                                                    {
+                                                        <b>@item.ClosingDate</b>
+                                                    }
+                                                    else
+                                                    {
+                                                        <b style="color:red">Pending</b>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (item.TestedBy == null)
+                                                    {
+                                                        <a onclick="return callmdl('@item.ID')" class="btn btn-success btn-xs">Assign Expert</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <b style="color:green">Assigned</b>
+                                                    }
+                                                </td>
+
+
+                                            </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>No Data !</h3>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    function callmdl(value) {
+        $("#ID_").val(value);
+        $('#ModalLoginForm').modal('show');
+    }
+</script>
+
+<div id="ModalLoginForm" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="/admin/assign_Soiltest_Expert_">
+                    <div class="row">
+                        <div class="col-sm-12" style="    padding: 30px;">
+                            <div class="form-group">
+                                <label for="email">Select Expert:</label>
+                                <input type="hidden" id="ID_" name="ID_" value="" />
+                                <select name="expert" required class="form-control">
+                                    <option value="">--Select Expert--</option>
+                                    @foreach (var item in Expert)
+                                    {
+                                        <option value="@item.ExpertId">@item.FirstName @item.LastName</option>
+                                    }
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

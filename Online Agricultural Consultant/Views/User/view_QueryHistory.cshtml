@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Online_Agricultural_Consultant.Models.tblQueryDetail>
+    @using Online_Agricultural_Consultant.Models
+@{
+    ViewBag.Title = "view_QueryHistory";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+    Online_Agricultural_Consultant_DBEntities db = new Online_Agricultural_Consultant_DBEntities();
+}
+
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <h3></h3>
+        </div>
+    </div>
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            <li><a href="/Expert/Dashboard">Dashboard</a></li>
+            <li class="active">View Query History </li>
+        </ul>
+    </div>
+    <div class="tabbable page-tabs">
+        <div class="tab-content">
+            @if (TempData["mmm1"] != null)
+            {
+                @Html.Raw(TempData["mmm1"])
+            }
+            <div class="tab-pane active fade in" id="inside">
+                <div class="panel panel-default">
+                    <div class="panel-heading"></div>
+                    @if (Model.Count() > 0 && Model != null)
+                    {
+                        <div class="datatable">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Tile</th>
+                                        <th>Query</th>
+                                        <th>create Date</th>
+                                        <th>Solved Date</th>
+                                        <th>Solution</th>
+                                        <th>Solved_By</th>
+                                        <th>status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int i = 0;
+                                        foreach (var item in Model)
+                                        {
+                                            i++;
+                                            <tr>
+                                                <td>@i</td>
+                                                <td>@item.Title</td>
+                                                <td>@item.Content</td>
+                                                <td>@item.CreationDate</td>
+                                                <td>@item.SolutionDate</td>
+                                                <td>@item.Solution</td>
+                                                <td>
+                                                    @if (item.SolvedBy != null)
+                                                    {
+                                                        var dad = db.tblStaffDetails.Where(a => a.EmpId == item.SolvedBy).FirstOrDefault();
+
+                                                    <h3>@dad.FirstName @dad.LastName</h3>
+                                                    }
+                                                    else
+                                                    {
+                                                            <h3>--</h3>
+                                                    }
+                                                </td>
+                                                    <td style="color:@(item.Solution == null ? "red" : "green") ">
+                                                        <h3>  @(item.Solution == null ? "Pending" : "Solved")</h3>
+                                                    </td>
+                                             
+                                            </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>No Data !</h3>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

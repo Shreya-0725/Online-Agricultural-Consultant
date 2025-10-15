@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "add_articles";
+    Layout = "~/Views/Shared/ExpertLayout.cshtml";
+}
+<div class="page-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-title">
+            <br /><br />
+            <h1><u>Add New Articals</u></h1>
+        </div>
+    </div>
+
+    @if (TempData["article_msg"] != null)
+    {
+        <div class="callout callout-success fade in">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h1>@TempData["article_msg"]</h1>
+        </div>
+    }
+    <br />
+    <form class="form-horizontal" action="/Expert/add_articles" method="post" role="form" enctype="multipart/form-data">
+        <div class="panel panel-default">
+            <div class="panel-body" style="    border: 1px solid;    background: #d3d3d32b;">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-right" style="font-size:15px;"><b>Subject :</b></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="Subject" required placeholder="Enter Subject">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-right" style="font-size:15px;"><b>Picture :</b></label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" name="File" id="File" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label text-right" style="font-size:15px;"><b>Content :</b></label>
+                    <div class="col-sm-10">
+                        <textarea rows="5" cols="5" required name="Content" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-actions text-right">
+                    <input type="submit" value="Submit form" class="btn btn-success">
+                    <input type="reset" value="Clear" class="btn btn-danger">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
